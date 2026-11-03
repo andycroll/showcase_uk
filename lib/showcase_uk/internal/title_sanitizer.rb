@@ -19,7 +19,8 @@ module ShowcaseUk
       def remove
         [
           /\s*\(\d+(st|nd|rd|th) Anniversary [^)]*\)/i, # anniversary restoration
-          /\s+-\s+Sensory Friendly Screening\z/i        # also a showtime tag
+          /\s+-\s+Sensory Friendly Screening\z/i,       # also a showtime tag
+          /\s*-\s*[\w ]+ Film Club\z/i                  # film club screening
         ] + COMMON_REMOVE
       end
 

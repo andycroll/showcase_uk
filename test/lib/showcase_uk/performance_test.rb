@@ -70,8 +70,9 @@ class ShowcaseUk::PerformanceTest < Minitest::Test
   end
 
   def test_at_reads_event_cinema_and_falls_back_to_relay_booking
-    performance = find('Met Opera: Invented Opera')
+    performance = find('Invented Opera')
 
+    assert_equal Cinebase::Event.new(name: 'Met Opera'), performance.event
     assert_equal %w(arts), performance.variant
     assert_equal 'https://relay.example.com/ticketing/dbz?code_theater=X06JR&perfd=20261025&perft=19:00',
                  performance.booking_url

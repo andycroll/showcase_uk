@@ -9,6 +9,10 @@ class ShowcaseUk::Internal::TitleSanitizerTest < Minitest::Test
     assert_sanitized 'Wildwood', 'Wildwood - Sensory Friendly Screening'
   end
 
+  def test_removes_film_club
+    assert_sanitized 'Black Christmas', 'Black Christmas- Leicester Film Club'
+  end
+
   def test_removes_4k_and_anniversary
     assert_sanitized 'Donnie Darko', 'Donnie Darko 4K (25th Anniversary)'
   end
